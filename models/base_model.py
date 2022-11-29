@@ -6,9 +6,13 @@ from datetime import datetime
 
 class BaseModel:
     ''' '''
-    self.id = str(uuid.uuid4())
-    self.created_at = datetime.now()
-    self.updated_at = datetime.now()
+
+    def __init__(self):
+        '''initializing the ins and att'''
+
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
     def __str__(self):
         '''returns string representation'''
