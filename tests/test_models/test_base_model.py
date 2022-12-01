@@ -5,8 +5,13 @@ A module that contains the test suite for the BaseModel class
 import unittest
 from time import sleep
 import os
+from models import storage
+from models.engine.file_storage import FileStorage
 from datetime import datetime
 from uuid import uuid4
+import json
+import re
+import time
 
 import models
 from models.base_model import BaseModel
@@ -74,7 +79,7 @@ class TestBaseModel(unittest.TestCase):
     def test_args_unused(self):
         """
         Checks that the attribute 'args' is not used.
-        ""
+        """
 
         b = BaseModel(None)
         self.assertNotIn(None, b.__dict__.values())
